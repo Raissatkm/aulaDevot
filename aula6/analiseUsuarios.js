@@ -7,25 +7,26 @@ Exemplo de Código:*/
 
 
 
-function análiseDeUsuarios(usuarios, cidadeAlvo) {
-       let usuarioMaisVelho = Math.max(...usuarios);
-       let usuarioMaisJovem = Math.min(...usuarios);
-       let quantidadePessoasCidade= usuarios.filter(usuario => usuario.cidade === cidadeAlvo)
-    
+function analiseDeUsuarios(usuarios, cidadeAlvo){
+  let usuarioMaisVelho = usuarios.reduce((maisVelho, usuario) =>
+  usuario.idade > maisVelho.idade ? usuario: maisVelho, usuarios[0]);
 
-}
+  let usuarioMaisJovem = usuarios.reduce((maisJovem, usuario) =>
+  usuario.idade < maisJovem.idade ? usuario: maisJovem, usuarios[0]);
 
-return{
+  let quantidadeDePessoas = usuarios.filter(usuario => usuario.cidade === cidadeAlvo).length;
+
+
+  return{
     usuarioMaisVelho,
     usuarioMaisJovem,
+    quantidadeDePessoas,
+  }
 }
+
 const usuarios = [
   { nome: "Ana", idade: 25, cidade: "São Paulo" },
   { nome: "João", idade: 30, cidade: "Rio de Janeiro" },  
   { nome: "Maria", idade: 20, cidade: "São Paulo" },
 ];
-console.log(cadastroUsuarios(usuarios, "São Paulo"));
-// { maisVelho: { nome: 'João', idade: 30, cidade: 'Rio de Janeiro' },
-//   maisJovem: { nome: 'Maria', idade: 20, cidade: 'São Paulo' },
-//   quantidadeMesmaCidade: 2 }
-
+console.log(analiseDeUsuarios(usuarios, "São Paulo"));
