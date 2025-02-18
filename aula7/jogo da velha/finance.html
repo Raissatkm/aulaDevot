@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educação Financeira</title>
+    <link rel="stylesheet" href="finance.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Educação Financeira Online</h1>
+        
+        <div class="card">
+            <h2 class="subtitle">Simulador de Economia</h2>
+            <input type="number" id="budget" placeholder="Orçamento mensal">
+            <input type="number" id="savings" placeholder="Valor que pode economizar por mês">
+            <input type="number" id="goal" placeholder="Meta financeira (ex: R$ 5000)">
+            <button class="button" onclick="calculateSavings()">Calcular</button>
+            <p id="result" class="result"></p>
+        </div>
+    </div>
+
+    <script src="finance.js"></script>
+</body>
+</html>
